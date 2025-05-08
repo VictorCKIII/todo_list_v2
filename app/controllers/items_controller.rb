@@ -1,29 +1,28 @@
 class ItemsController < ApplicationController
   before_action :set_list
-  before_action :set_item, only: [:edit, :update]
+  before_action :set_item, only: [ :edit, :update ]
 
   def create
     @item = @list.items.build(item_params)
     if @item.save
       redirect_to @list
     else
-      render 'lists/show'
+      render "lists/show"
     end
   end
 
   def edit
-    
   end
 
   def update
     if @item.update(item_params)
-      redirect_to @list, notice: 'Item atualizado com sucesso.'
+      redirect_to @list, notice: "Item atualizado com sucesso."
     else
       render :edit
     end
   end
 
-  def destroy 
+  def destroy
     @list = List.find(params[:list_id])
     @item = @list.items.find(params[:id])
     @item.destroy
