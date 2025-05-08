@@ -1,0 +1,15 @@
+<h2>Editando Item</h2>
+
+<%= form_with model: [@list, @item] do |f| %>
+  <div>
+    <%= f.label :content, "Descrição" %>
+    <%= f.text_field :content %>
+  </div>
+  <div>
+    <%= f.label :done, "Feito?" %>
+    <%= f.check_box :done %>
+  </div>
+  <%= f.submit "Atualizar" %>
+<% end %>
+
+<%= link_to "Voltar para a lista", list_path(@list) %>

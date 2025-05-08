@@ -1,0 +1,32 @@
+
+<h2>Itens de <%= @list.title%></h2>
+<ul>
+  <% @list.items.each do |item| %>
+    <li>
+      <%= item.content %> - <%= item.done ? "Completado" : "Pendente" %>
+      <%= link_to "Editar", edit_list_item_path(@list, item), class:"button" %>
+
+      <%= link_to "Deletar", list_item_path(@list, item), method: :delete, data: { confirm: "Tem certeza?" } %>
+
+    </li>
+  <% end %>
+</ul>
+
+<h3 class="titulo">Adicionar novo item</h3>
+<div>
+
+  <%= form_with model: [@list, @item] do |f| %>
+  <%= f.label :content, class:"content" %>
+  <%= f.text_field :content, class:"field" %>
+  <%= f.label :done %>
+  <%= f.check_box :done %><br>
+
+  <%= f.submit %>
+<% end %>
+
+</div>
+
+
+
+
+<%= link_to "Voltar", root_path %>

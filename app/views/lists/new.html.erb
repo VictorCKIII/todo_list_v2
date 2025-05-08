@@ -1,0 +1,9 @@
+<h1 class="titulo">Nova Lista</h1>
+
+<div class="">
+  <%= form_with model: @list do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title , class:"field"%>
+  <%= f.submit "Criar", class:"button_criar" %>
+<% end %>
+</div>
