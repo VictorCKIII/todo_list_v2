@@ -1,15 +1,28 @@
 <h1>Minhas Listas</h1>
 
-<%= link_to "Nova Lista", new_list_path %>
+<%= link_to "Nova Lista", new_list_path, class:"button_newList" %>
+
+
+<% if notice %>
+  <div class="flash-notice">
+    <%= notice %>
+  </div>
+<% end %>
+
+<% if alert %>
+  <div class="flash-alert">
+    <%= alert %>
+  </div>
+<% end %>
 
 <ul>
   <% @lists.each do |list| %>
 
     <li>
 
-      <h4><%= list.title %> </h4> 
-      <%= link_to "Editar", list_path(list) %> |
-      <%= link_to "Deletar", list_path(list), method: :delete, data: { confirm: "Tem certeza?" } %>
+      <h3><%= list.title %> </h3> 
+      <%= link_to "Editar", list_path(list), class:"button_edit" %> |
+      <%= link_to "Deletar", list_path(list), method: :delete, data: { confirm: "Tem certeza?"}, class:"button_delete" %>
 
       </li>
 

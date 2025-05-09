@@ -1,15 +1,21 @@
-<h2>Editando Item</h2>
+<h2 class="titulo_item_edit">Editando item de:  <%=@list.title %></h2>
 
 <%= form_with model: [@list, @item] do |f| %>
   <div>
-    <%= f.label :content, "Descrição" %>
-    <%= f.text_field :content %>
+
+    <%= f.label :content, "Nome do Item:", class:"content" %>
+    <%= f.text_field :content, class:"field", required:true %>
+    <%= f.label :done, "Realizado?" , class:"content" %>
+    <%= f.check_box :done, class:"round" %>
   </div>
-  <div>
-    <%= f.label :done, "Feito?" %>
-    <%= f.check_box :done %>
+
+  <div class="att">
+   <%= f.submit "Atualizar", class:"button_att" %>    
   </div>
-  <%= f.submit "Atualizar" %>
+
+
 <% end %>
 
-<%= link_to "Voltar para a lista", list_path(@list) %>
+
+
+<%= link_to "Voltar para a lista", list_path(@list), class:"button_back" %>

@@ -5,7 +5,8 @@ class ListsController < ApplicationController
 
   def show
     @list = List.find(params[:id])
-    @item = Item.new
+    @item = @list.items.build
+    
   end
 
   def new
@@ -15,9 +16,9 @@ class ListsController < ApplicationController
   def create
     @list = List.new(list_params)
     if @list.save
-      redirect_to @list
+      redirect_to lists_path, notice: "Lista Criada Com Sucesso"
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -28,7 +29,7 @@ class ListsController < ApplicationController
   def destroy
     @list = List.find(params[:id])
     @list.destroy
-        redirect_to lists_path, notice: "Lista deletada com sucesso."
+        redirect_to lists_path, alert: "Lista deletada com sucesso."
   end
 
 

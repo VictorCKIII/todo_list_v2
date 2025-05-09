@@ -11,7 +11,7 @@
 
 body {
   font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
+  background-color: #DCDCDC;
   margin: 20px;
 }
 
@@ -66,6 +66,33 @@ div{
 }
 
 .button_criar{
+	font-size: 15px;
+background-color: green;
+color: whitesmoke;
+padding: 10px 10px;
+border: none;
+border-radius: 6px;
+cursor: pointer;
+width: 100px;
+}
+
+.button_criar:hover {
+	background-color: darkgreen;
+}
+
+.button_delete{
+
+	background-color:red;
+	color:white;
+	border: none;
+	border-radius: 6px;
+	cursor: pointer;
+	width: 50px;
+	padding: 5px 10px;
+}
+
+.button_edit{
+
 background-color: #007bff;
 color: whitesmoke;
 padding: 5px 10px;
@@ -73,25 +100,171 @@ border: none;
 border-radius: 6px;
 cursor: pointer;
 width: 50px;
-
-
+text-decoration: none;
 }
 
-.button_criar:hover {
-	background-color: green;
+.button_newList{
+background-color: #007bff;
+color: whitesmoke;
+padding: 5px 10px;
+border: none;
+border-radius: 6px;
+cursor: pointer;
+width: 30px;
+text-decoration: none;
 }
 
 .field {
-	border-radius: 20px;
+	font-size: 15px;
+	border-radius: 6px;
 	border: none;
 	background-color: floralwhite;
-	width: auto;
-	height: auto;
-	padding: 5px;
+	width: 200px;
+	padding: 8px;
 	margin-left: 10px;
 	margin-right: 10px;
 }
 
 .content{
 	font-size: 20px;
+}
+
+.flash-notice {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 15px;
+  background: #4CAF50;
+  color: white;
+  border-radius: 5px;
+  animation: fadeOut 4s forwards; /* Some após 4 segundos */
+}
+.flash-alert {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 15px;
+  background: red;
+  color: white;
+  border-radius: 5px;
+  animation: fadeOut 4s forwards; /* Some após 4 segundos */
+}
+
+@keyframes fadeOut {
+  0%   { opacity: 1; }
+  80%  { opacity: 1; } /* Mantém visível por 80% do tempo */
+  100% { opacity: 0; display: none; } /* Some completamente */
+}
+
+.error-messages {
+  color: #dc3545;
+  background-color: #f8d7da;
+  border-radius: 10px;
+  border: none;
+  margin-bottom: 20px;
+  width: 250px;
+  display: flex;
+  padding-bottom: 5px;
+}
+
+.error-messages h3 {
+  margin-top: 0;
+  font-size: 1.1em;
+}
+
+.error-messages ul {
+  margin-bottom: 0;
+  padding-left: 20px;
+}
+
+.field-group {
+  display: inline-block;
+}
+
+
+.titulo_item{
+	display: flex;
+	justify-content: center;
+	margin-top: 20px;
+}
+
+.titulo_item_edit{
+	display: flex;
+	justify-content: center;
+	margin-top: 40px;
+}
+
+
+
+.button2 {
+
+	background-color: green;
+	color: white;
+	border: none;
+	border-radius: 6px;
+	padding: 10px 10px;
+	cursor: pointer;
+	width:170px;
+	margin-left: 160px;
+	margin-top: 25px;
+	font-size: 20px;
+
+}
+
+.button2:hover{
+	background-color: darkgreen;
+}
+
+.round {
+	width: 17px;
+	height: 17px; 
+	
+	
+  cursor: pointer;
+	display: inline-block;
+}
+
+.round:checked {
+  background-color: green;
+}
+
+.teste{
+	display: inline-block;
+}
+
+.button_att {
+
+	background-color: #1E90FF;
+	color: white;
+	border: none;
+	border-radius: 6px;
+	padding: 10px 10px;
+	cursor: pointer;
+	width:200px;
+	margin-left: 20px;
+	margin-top: 25px;
+	font-size: 20px;
+
+}
+
+.button_back{
+	background-color: #1E90FF;
+	color: white;
+	border: none;
+	border-radius: 6px;
+	padding: 10px 10px;
+	cursor: pointer;
+	width:200px;
+	margin-top: 70px;
+	font-size: 20px;
+}
+
+
+.button_att:hover{
+	background-color:#4169E1 ;
+}
+
+.att{
+	display: flex;
+	margin-right: 10px;
 }

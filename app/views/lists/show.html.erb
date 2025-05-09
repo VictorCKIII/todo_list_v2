@@ -1,32 +1,50 @@
 
 <h2>Itens de <%= @list.title%></h2>
+
+
+
+<% if notice %>
+  <div class="flash-notice">
+    <%= notice %>
+  </div>
+<% end %>
+
+
+<% if alert %>
+  <div class="flash-alert">
+    <%= alert %>
+  </div>
+<% end %>
+
 <ul>
   <% @list.items.each do |item| %>
+  <% if item.persisted? %>
     <li>
-      <%= item.content %> - <%= item.done ? "Completado" : "Pendente" %>
-      <%= link_to "Editar", edit_list_item_path(@list, item), class:"button" %>
-
-      <%= link_to "Deletar", list_item_path(@list, item), method: :delete, data: { confirm: "Tem certeza?" } %>
-
+      <%= item.content %> - <%= item.done ? "✅" : "❌" %>
+      <%= link_to "Editar", edit_list_item_path(@list, item), class:"button_edit" %> |
+      <%= link_to "Deletar", list_item_path(@list, item),class:"button_delete" ,method: :delete, data: { confirm: "Tem certeza?" } %>
     </li>
   <% end %>
+<% end %>
 </ul>
 
-<h3 class="titulo">Adicionar novo item</h3>
-<div>
+<h2 class="titulo_item">Adicionar novo item em  <%=@list.title%></h2>
+<div class="att" >
 
   <%= form_with model: [@list, @item] do |f| %>
-  <%= f.label :content, class:"content" %>
-  <%= f.text_field :content, class:"field" %>
-  <%= f.label :done %>
-  <%= f.check_box :done %><br>
+  <%= f.label "Nome do item:", class:"content" %>
+  <%= f.text_field :content, class:"field", required:true %>
+  <%= f.label "Realizado" %> 
+  <%= f.check_box :done, class:"round" %><br>
+  
+                     
 
-  <%= f.submit %>
+   <%= f.submit "Criar Item", class:"button2" %>   
+ 
+ 
 <% end %>
 
 </div>
 
 
-
-
-<%= link_to "Voltar", root_path %>
+<%= link_to "Voltar", root_path, class:"button_back" %>
