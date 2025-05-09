@@ -19,8 +19,10 @@
   <% @lists.each do |list| %>
 
     <li>
-
-      <h3><%= list.title %> </h3> 
+      
+        <h3><%= link_to list.title, edit_list_path(list)%> </h3> 
+      
+      
       <%= link_to "Editar", list_path(list), class:"button_edit" %> |
       <%= link_to "Deletar", list_path(list), method: :delete, data: { confirm: "Tem certeza?"}, class:"button_delete" %>
 

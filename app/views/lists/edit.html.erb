@@ -1,0 +1,20 @@
+<h1 class="titulo">Editar Lista</h1>
+
+<%= form_with model: @list do |f| %>
+  <div class="att">
+     <div class="teste">
+    <%= f.label :title, "Nome da Lista", class:"contet" %>
+    <%= f.text_field :title, class: "field_edit", required:true %>
+    <%= f.submit "Atualizar Lista", class: "button_att" %>
+  </div>
+
+  </div>
+ 
+
+  <div class="cancel">
+  <%= link_to "Cancelar", lists_path, class:"cancel" %>
+    
+  </div>
+
+
+<% end %>

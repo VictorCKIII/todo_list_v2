@@ -125,6 +125,17 @@ text-decoration: none;
 	margin-right: 10px;
 }
 
+.field_edit {
+	font-size: 15px;
+	border-radius: 6px;
+	border: none;
+	background-color: floralwhite;
+	width: 200px;
+	padding: 5px;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
 .content{
 	font-size: 20px;
 }
@@ -230,6 +241,7 @@ text-decoration: none;
 
 .teste{
 	display: inline-block;
+
 }
 
 .button_att {
@@ -268,3 +280,9 @@ text-decoration: none;
 	display: flex;
 	margin-right: 10px;
 }
+
+.cancel{
+	margin-top: 20px;
+	margin-right: 40px;
+}
+
