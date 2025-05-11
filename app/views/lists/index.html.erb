@@ -17,16 +17,34 @@
 
 <ul>
   <% @lists.each do |list| %>
+  
+    <li class="teste_container">
+        <h3><%= link_to list.title, edit_list_path(list)%> </h3>
 
-    <li>
+        <ul >
+          <% list.items.each do |item|%>
+          <li class="item">
+           
+            <%=item.content%>
+            <% if item.done? %>
+            
+                <span style="color: green;">(✔️ Feito)</span>
+            <% else %>
+                <span style="color: red;">(❌ Pendente)</span>
+            <% end %>
+            
+            <%end%>
+          </li>
+        </ul>
+      <li>
+
       
-        <h3><%= link_to list.title, edit_list_path(list)%> </h3> 
-      
-      
-      <%= link_to "Editar", list_path(list), class:"button_edit" %> |
-      <%= link_to "Deletar", list_path(list), method: :delete, data: { confirm: "Tem certeza?"}, class:"button_delete" %>
+     <%= link_to raw('<i class="fas fa-pencil-alt"></i>'), list_path(list), class: "edit-icon" %> |
+      <%= link_to raw('<i class="fa-solid fa-trash"></i>'), list_path(list), method: :delete, data: { confirm: "Tem certeza?"}, class:"delete-icon"%>
 
       </li>
+
+  
 
 
   <% end %>

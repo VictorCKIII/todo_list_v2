@@ -1,7 +1,4 @@
 
-<h2>Itens de <%= @list.title%></h2>
-
-
 
 <% if notice %>
   <div class="flash-notice">
@@ -9,24 +6,12 @@
   </div>
 <% end %>
 
-
 <% if alert %>
   <div class="flash-alert">
     <%= alert %>
   </div>
 <% end %>
 
-<ul>
-  <% @list.items.each do |item| %>
-  <% if item.persisted? %>
-    <li>
-      <%= item.content %> - <%= item.done ? "✅" : "❌" %>
-      <%= link_to "Editar", edit_list_item_path(@list, item), class:"button_edit" %> |
-      <%= link_to "Deletar", list_item_path(@list, item),class:"button_delete" ,method: :delete, data: { confirm: "Tem certeza?" } %>
-    </li>
-  <% end %>
-<% end %>
-</ul>
 
 <h2 class="titulo_item">Adicionar novo item em  <%=@list.title%></h2>
 <div class="att" >
@@ -48,3 +33,16 @@
 
 
 <%= link_to "Voltar", root_path, class:"button_back" %>
+
+<ul class="div_center">
+  <h2>Itens de <%= @list.title%></h2>
+  <% @list.items.each do |item| %>
+  <% if item.persisted? %>
+    <li>
+      <%= item.content %> - <%= item.done ? "✅" : "❌" %>
+      <%= link_to "Editar", edit_list_item_path(@list, item), class:"button_edit" %> |
+      <%= link_to "Deletar", list_item_path(@list, item),class:"button_delete" ,method: :delete, data: { confirm: "Tem certeza?" } %>
+    </li>
+  <% end %>
+<% end %>
+</ul>
