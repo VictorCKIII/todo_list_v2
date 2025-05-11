@@ -1,0 +1,30 @@
+<%= tag.div(flash[:alert], style: "color:red") if flash[:alert] %>
+<%= tag.div(flash[:notice], style: "color:green") if flash[:notice] %>
+
+<div class="login-container">
+  <%= form_with url: session_path, class: "login-card" do |f| %>
+    <h1 class="login-title">Entrar</h1>
+    
+    <div class="input-group">
+      <%= f.email_field :email_address, 
+            class: "login-input",
+            placeholder: " ",
+            required: true,
+            value: params[:email_address] %>
+      <%= f.label :email_address, "Email", class: "input-label" %>
+    </div>
+
+    <div class="input-group">
+      <%= f.password_field :password, 
+            class: "login-input",
+            placeholder: " ",
+            required: true %>
+      <%= f.label :password, "Senha", class: "input-label" %>
+    </div>
+
+    <%= f.submit "Continuar", class: "login-btn" %>
+
+  <% end %>
+</div>
+
+
