@@ -285,16 +285,23 @@ text-decoration: none;
 	margin-top: 20px;
 	margin-right: 40px;
 }
+.voltar{
+
+	margin-top: 20px;
+	margin-right: 40px;
+	margin-left: 80px;
+	
+}
 
 .item {
 	font-style: italic;
 	margin-bottom: 10px;
 }
 
-.teste_container{
+.item_list{
 	background: rgba(255, 255, 255, 0.337); 
   	backdrop-filter: blur(10px); 
-	border-radius: 20px; 
+	border-radius: 30px; 
 	border: 1px solid rgba(255, 255, 255, 0.18); 
 	box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1); 
 	padding: 20px;
@@ -302,7 +309,6 @@ text-decoration: none;
 	width: 200px;
 	justify-content: center;
 	justify-items: center;
-	
 }
 
 .edit-icon:hover{
@@ -417,5 +423,30 @@ text-decoration: none;
   .link-text:hover {
 	color: #0984e3;
   }
+
+.lista_center{
+	justify-items: center;
+	
+}
+.item_teste{
+	background: rgba(255, 255, 255, 0.337); 
+  	backdrop-filter: blur(10px); 
+	border-radius: 30px; 
+	border: 1px solid rgba(255, 255, 255, 0.18); 
+	box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1); 
+	padding: 20px;
+	margin: 10px 0;
+}
+.border_under {
+
+	border-bottom: 1px solid;
+}
+
+.logout-link:hover{
+	color: red;
+}
+.home-link:hover{
+	color: black;
+}
 
 

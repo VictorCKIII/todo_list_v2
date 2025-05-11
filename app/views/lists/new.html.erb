@@ -1,5 +1,12 @@
 <h1 class="titulo">Nova Lista</h1>
 
+<% if alert %>
+  <div class="flash-alert">
+    <%= alert %>
+  </div>
+<% end %>
+
+
 <div class="form-container">
   <%= form_with model: @list do |f| %>
   
@@ -10,5 +17,11 @@
     </div>
 
     <%= f.submit "Criar", class: "button_criar" %>
+
+
+     <div class="cancel">
+
+  <%= link_to "Voltar", lists_path, class:"voltar" %>  
+  </div>
   <% end %>
 </div>

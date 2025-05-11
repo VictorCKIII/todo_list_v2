@@ -11,7 +11,8 @@
   </head>
 
   <body>
-    
+    <%= link_to raw('<i class="fa-solid fa-house"></i>'), lists_path, class:'home-link' %>
+    <%= link_to raw('<i class="fa-solid fa-arrow-right-from-bracket"></i>'), session_path, method: :delete, class: "logout-link" %>
     <%= yield %>
   </body>
 </html>

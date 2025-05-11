@@ -12,18 +12,23 @@
   </div>
 <% end %>
 
+  
+
+
+
 
 <h2 class="titulo_item">Adicionar novo item em  <%=@list.title%></h2>
 <div class="att" >
+  
 
   <%= form_with model: [@list, @item] do |f| %>
+  
   <%= f.label "Nome do item:", class:"content" %>
-  <%= f.text_field :content, class:"field", required:true %>
+  <%= f.text_field :content, class:"field", required: true %>
   <%= f.label "Realizado" %> 
   <%= f.check_box :done, class:"round" %><br>
   
                      
-
    <%= f.submit "Criar Item", class:"button2" %>   
  
  
@@ -36,13 +41,17 @@
 
 <ul class="div_center">
   <h2>Itens de <%= @list.title%></h2>
+ 
+  <section class="item_teste">
+
   <% @list.items.each do |item| %>
   <% if item.persisted? %>
-    <li>
-      <%= item.content %> - <%= item.done ? "✅" : "❌" %>
-      <%= link_to "Editar", edit_list_item_path(@list, item), class:"button_edit" %> |
-      <%= link_to "Deletar", list_item_path(@list, item),class:"button_delete" ,method: :delete, data: { confirm: "Tem certeza?" } %>
+    <li class="border_under">
+      <%= item.content %> - <%= item.done ? "✔️" : "❌" %> |
+      <%= link_to raw('<i class="fas fa-pencil-alt"></i>'), edit_list_item_path(@list, item), class:'edit-icon' %> |
+      <%= link_to raw('<i class="fa-solid fa-trash"></i>'), list_item_path(@list, item),method: :delete, data: { confirm: "Tem certeza?" }, class:'delete-icon'%>
     </li>
   <% end %>
 <% end %>
 </ul>
+  </section>

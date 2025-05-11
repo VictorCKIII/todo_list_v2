@@ -6,11 +6,12 @@ class ItemsController < ApplicationController
     @list = List.find(params[:list_id])
     @item = @list.items.build(item_params)
 
-    if @item.save
+    if @list.items.where(content: @item.content).exists?
+      redirect_to @list, alert: "Este item já existe na lista!"
+    elsif @item.save
       redirect_to @list, notice: "Item criado com sucesso!"
     else
       @items = @list.items
-      @item = @list.items.build
       render "lists/show", status: :unprocessable_entity
     end
   end
@@ -20,10 +21,17 @@ class ItemsController < ApplicationController
   end
 
   def update
-    if @item.update(item_params)
+    @list = List.find(params[:list_id])
+    @item = @list.items.find(params[:id])
+
+
+    if @list.items.where(content: item_params[:content]).where.not(id: @item.id).exists?
+      redirect_to edit_list_item_path(@list, @item), alert: "Este item já existe na lista!"
+
+    elsif @item.update(item_params)
       redirect_to @list, notice: "Item atualizado com sucesso."
     else
-      render :edit
+      render :edit, status: :unprocessable_entity
     end
   end
 

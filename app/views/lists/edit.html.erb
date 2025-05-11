@@ -1,5 +1,12 @@
 <h1 class="titulo">Editar Lista</h1>
 
+<% if alert %>
+  <div class="flash-alert">
+    <%= alert %>
+  </div>
+<% end %>
+
+
 <%= form_with model: @list do |f| %>
   <div class="att">
      <div class="teste">

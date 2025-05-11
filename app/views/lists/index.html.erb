@@ -1,10 +1,6 @@
 <h1 class="titulo">Minhas Listas</h1>
 
-<div>
 
-
-  
-</div>
 <%= link_to "Nova Lista", new_list_path, class:"button_newList" %>
 
 
@@ -20,10 +16,10 @@
   </div>
 <% end %>
 
-<ul>
+<ul class="lista_center">
   <% @lists.each do |list| %>
   
-    <li class="teste_container">
+    <li class="item_list">
         <h3><%= link_to list.title, edit_list_path(list)%> </h3>
 
         <ul >
@@ -42,6 +38,7 @@
           </li>
         </ul>
       <li>
+    
 
       
      <%= link_to raw('<i class="fas fa-pencil-alt"></i>'), list_path(list), class: "edit-icon" %> |

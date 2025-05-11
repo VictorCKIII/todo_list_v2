@@ -14,10 +14,15 @@ class ListsController < ApplicationController
 
   def create
     @list = List.new(list_params)
-    if @list.save
-      redirect_to lists_path, notice: "Lista Criada Com Sucesso"
+
+    if List.exists?(title: list_params[:title])
+      redirect_to new_list_path, alert: "Esta Lista já existe"
+    elsif @list.save
+      redirect_to lists_path, notice: "Lista criada com sucesso!"
     else
+
       render :new, status: :unprocessable_entity
+
     end
   end
 
@@ -28,8 +33,11 @@ class ListsController < ApplicationController
   def update
     @list = List.find(params[:id])
 
-    if @list.update(list_params)
-      redirect_to lists_path, notice: "Lista atualizada com sucesso"
+    if List.where(title: list_params[:title]).where.not(id: @list.id).exists?
+    redirect_to edit_list_path(@list), alert: "Já existe outra lista com este nome!"
+
+    elsif @list.update(list_params)
+      redirect_to lists_path, notice: "Lista Atualizada com sucesso "
     else
       render :edit, status: :unprocessable_entity
     end
