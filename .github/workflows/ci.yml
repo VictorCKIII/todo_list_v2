@@ -9,7 +9,7 @@ jobs:
   scan_ruby:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: .ruby-version
@@ -19,7 +19,7 @@ jobs:
   scan_js:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: .ruby-version
@@ -39,7 +39,7 @@ jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: .ruby-version
@@ -50,7 +50,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: sudo apt-get update && sudo apt-get install -y build-essential libyaml-dev
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: .ruby-version
